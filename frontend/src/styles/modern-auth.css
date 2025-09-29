@@ -1,0 +1,308 @@
+/* Modern Authentication Styles */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --background-gradient: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Container Styles */
+.modern-auth-container {
+  background: var(--background-gradient);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-auth-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -30px) rotate(120deg); }
+  66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+.auth-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Styles */
+.modern-auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.modern-auth-card:hover {
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-5px);
+}
+
+.modern-auth-card.biometric-card {
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.modern-auth-card.behavioral-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 248, 255, 0.95) 100%);
+}
+
+.modern-auth-card.success-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 255, 240, 0.95) 100%);
+}
+
+/* Typography */
+.auth-title {
+  font-weight: 700 !important;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px !important;
+}
+
+.auth-title.success-title {
+  background: var(--success-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.auth-subtitle {
+  color: #6b7280 !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+}
+
+/* Input Styles */
+.modern-input .MuiOutlinedInput-root {
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modern-input .MuiOutlinedInput-root:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modern-input .MuiOutlinedInput-root.Mui-focused {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.modern-input .MuiInputLabel-root {
+  font-weight: 500 !important;
+}
+
+.modern-input .MuiInputLabel-root.Mui-focused {
+  color: #667eea !important;
+}
+
+.modern-input .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.modern-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #667eea !important;
+  border-width: 2px !important;
+}
+
+/* Button Styles */
+.modern-auth-button {
+  background: var(--primary-gradient) !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+  transition: var(--transition) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-auth-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.modern-auth-button:hover::before {
+  left: 100%;
+}
+
+.modern-auth-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+.modern-auth-button:disabled {
+  background: #e5e7eb !important;
+  color: #9ca3af !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Biometric Styles */
+.biometric-option {
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  transition: var(--transition) !important;
+}
+
+.biometric-option.active {
+  background: var(--primary-gradient) !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+.camera-container {
+  background: #000 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.camera-feed {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.camera-overlay {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+.fingerprint-container {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+/* Monitoring Cards */
+.monitoring-card {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: var(--transition);
+}
+
+.monitoring-card:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  color: #667eea !important;
+}
+
+/* Success Animation */
+.success-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--success-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 0.6s ease-out;
+  position: relative;
+}
+
+@keyframes scaleIn {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.checkmark {
+  width: 25px;
+  height: 15px;
+  border-left: 3px solid white;
+  border-bottom: 3px solid white;
+  transform: rotate(-45deg);
+  animation: checkmarkDraw 0.3s ease-out 0.6s both;
+}
+
+@keyframes checkmarkDraw {
+  0% { width: 0; height: 0; }
+  50% { width: 25px; height: 0; }
+  100% { width: 25px; height: 15px; }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .modern-auth-card {
+    margin: 16px;
+  }
+  
+  .auth-title {
+    font-size: 1.75rem !important;
+  }
+  
+  .biometric-selector {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  .biometric-option {
+    width: 100% !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .modern-auth-card {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .auth-subtitle {
+    color: #94a3b8 !important;
+  }
+  
+  .modern-input .MuiOutlinedInput-root {
+    background: rgba(51, 65, 85, 0.8);
+    color: white;
+  }
+  
+  .monitoring-card {
+    background: rgba(51, 65, 85, 0.8) !important;
+  }
+}
